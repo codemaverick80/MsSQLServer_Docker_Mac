@@ -78,6 +78,8 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
   - click on Connect button
  
  
+ 
+<img src="azure_data_studio.png" height="400" width="600">
   
  
 
