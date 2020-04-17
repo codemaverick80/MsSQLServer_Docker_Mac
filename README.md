@@ -32,7 +32,7 @@ GO
 
 FROM mcr.microsoft.com/mssql/server:2017-latest AS build
 ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=Password@1
+ENV SA_PASSWORD=strongPwd@1
 
 WORKDIR /tmp
 COPY AdventureWorksLT2017.bak .
