@@ -3,6 +3,7 @@ How to run Ms sql server on Mac using docker
 
 ## Prerequisites
   - Mac computer (Latest version on macOS)
+  - Download and Install Docker Desktop for Mac (https://hub.docker.com/editions/community/docker-ce-desktop-mac)
   - Create a folder (e.g. users/`username`/docker/mssqlserver)
   - Download AdventureWorksLT2017.bak and place it inside above folder.
     - Database backup file can be found https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
