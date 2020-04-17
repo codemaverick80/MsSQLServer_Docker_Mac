@@ -79,7 +79,7 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
  
  
  
-<img src="azure_data_studio.png" height="400" width="600">
+<img src="azure_data_studio.png" width="700">
   
  
 
