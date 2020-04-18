@@ -14,8 +14,8 @@ How to run Ms sql server on Mac using docker
 ## Open above folder (mssqlserver) in VS code
   - Terminal : cd into above folder
   - type `code .` it will open VS code
-  - add new file 'restore-backup.sql'
-  - add new file 'dockerfile' (without any extension)
+  - add new file `restore-backup.sql`
+  - add new file `dockerfile` (without any extension)
 
 
 ## 'restore-backup.sql'
