@@ -70,7 +70,7 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
   - docker container is created and now sql server is running and it has AdventureWorks database.
   - Veryfy whether or not container is running, type following command
   - `docker ps` it will list all the running container on your machine. look for the `mssqlserver-dev`
-  
+
   
 ## Lets interact with SQL server (Termianl)
 
@@ -110,4 +110,7 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
 <img src="azure_data_studio.png" width="700">
   
  
-
+### Port forwarding & volumn mapping
+  - `-p 11433:1433` - mapping container's port 1433 to localhost port 11433.
+  - `-v d:/data:/var/opt/mssql/data` - map container's volume to local computer d:/data
+  - `docker run --name msqlserver-dev -p 11433:1433 -v d:/data:/var/opt/mssql/data -d restored-db`
