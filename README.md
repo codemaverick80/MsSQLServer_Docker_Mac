@@ -71,7 +71,34 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
   - Veryfy whether or not container is running, type following command
   - `docker ps` it will list all the running container on your machine. look for the `mssqlserver-dev`
   
-## Lets connect this SQL server using Azure Data Studio
+  
+## Lets interact with SQL server (Termianl)
+
+  - Check if your sql server is running in container, if not start the container
+  - `docekr ps`
+  - Get the container id (e.g. 5cfbb6a2f91a)
+  - Type following command
+    - `docker exec -it 5cfbb6a2f91a /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'strongPwd@1'`
+  - If you see` 1>` , means you are connected
+  
+  - Display the database name
+    - `SELECT NAME FROM SYS.SYSDATABASES;` <press enter>
+    - `GO` <press enter>
+
+  - Use databse
+    - `USE AdventureWorks`
+    - `GO`
+  - Show all the tables in database
+    - `SELECT * FROM INFORMATION_SCHEMA.TABLES;`
+    - `GO`
+    
+  - Select table row
+    - `SELECT TOP 100 * FROM SalesLT.customer;`
+    - `GO`
+
+ 
+  
+## Lets connect SQL server using Azure Data Studio
   - Open Azure Data Studio
   - Server : `localhost,11433`
   - User Name: `sa`
