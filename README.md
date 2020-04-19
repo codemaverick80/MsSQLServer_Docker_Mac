@@ -143,8 +143,11 @@ Note: DO NOT Delete this volume since we are going to use to store sql server da
 ### Connect sql server using Azure Data Studio and restore the database
   - Open Azure Data Studio and connect the sql server
   
-  <img src="azure_data_studio.png" width="700">
+  <img src="ads_sql_connection.png" width="700">
   
+  - right click on server name and click on manage
+  
+  <img src="ads_restore.png" width="700">
   
   
   - click on Restore 
