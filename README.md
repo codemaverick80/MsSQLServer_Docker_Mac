@@ -109,8 +109,41 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
  
 <img src="azure_data_studio.png" width="700">
   
- 
-### Port forwarding & volumn mapping
-  - `-p 11433:1433` - mapping container's port 1433 to localhost port 11433.
-  - `-v d:/data:/var/opt/mssql/data` - map container's volume to local computer d:/data
-  - `docker run --name msqlserver-dev -p 11433:1433 -v d:/data:/var/opt/mssql/data -d restored-db`
+# Presist SQL Server Data on Mac
+
+Since external location is not allowed for MS SQL server on mac, we need to create a volume inside docker host
+Note: DO NOT remove the volume. if we remove the volume, it will remove all the data that is inside the volume. However, we can delete sql container which will not delete the data if you have mounted this volume.
+
+https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-2017#persist
+
+### Create a volume in hocker host
+
+`docker volume crate mssqldata`
+
+Note: DO NOT Delete this volume since we are going to use to store sql server data.
+
+`docker volume ls` -> view all the volumes on docker host
+
+`docker volume rm <volume_name>` -> remove volume
+
+### Create SQL container 
+
+`docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=strong@password1' --name sqlmusic -p 11433:1433 -v mssqldata:/var/opt/mssql/data -d mcr.microsoft.com/mssql/server:2017-latest`
+
+### Copy .bak file into container
+
+
+`docker cp <your_computer_directory>/AdventureWorksLT2017.bak sqlmusic:/var/opt/mssql/data/AdventureWorksLT2017.bak`
+
+
+`docker cp /Users/<username>/Backups/AdventureWorksLT2017.bak sqlmusic:/var/opt/mssql/data/AdventureWorksLT2017.bak`
+
+### Connect sql server using Azure Data Studio and restore the database
+   click on Restore 
+   Source : Restore from = Backup file
+   Backup file path : /var/opt/mssql/data/AdventureWorksLT2017.bak
+   click on OK
+   click on Restore
+   
+
+
