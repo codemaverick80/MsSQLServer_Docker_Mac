@@ -141,11 +141,17 @@ Note: DO NOT Delete this volume since we are going to use to store sql server da
 `docker cp /Users/<username>/Backups/AdventureWorksLT2017.bak sqlmusic:/var/opt/mssql/data/AdventureWorksLT2017.bak`
 
 ### Connect sql server using Azure Data Studio and restore the database
-   click on Restore 
-   Source : Restore from = Backup file
-   Backup file path : /var/opt/mssql/data/AdventureWorksLT2017.bak
-   click on OK
-   click on Restore
+  - Open Azure Data Studio and connect the sql server
+  
+  <img src="azure_data_studio.png" width="700">
+  
+  
+  
+  - click on Restore 
+  - Source : Restore from = Backup file
+  - Backup file path : /var/opt/mssql/data/AdventureWorksLT2017.bak
+  - click on OK
+  - click on Restore
    
 
 
