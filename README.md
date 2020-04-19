@@ -112,13 +112,15 @@ COPY --from=build /var/opt/mssql/data /var/opt/mssql/data
 # Presist SQL Server Data on Mac
 
 Since external location is not allowed for MS SQL server on mac, we need to create a volume inside docker host
-Note: DO NOT remove the volume. if we remove the volume, it will remove all the data that is inside the volume. However, we can delete sql container which will not delete the data if you have mounted this volume.
+Note: DO NOT remove the volume.
+If we remove the volume, it will remove all the data that is inside the volume. 
+However, we can delete sql container which will not delete the data if you have mounted this volume.
 
 https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-2017#persist
 
-### Create a volume in hocker host
+### Create a volume inside hocker host
 
-`docker volume crate mssqldata`
+`docker volume create mssqldata`
 
 Note: DO NOT Delete this volume since we are going to use to store sql server data.
 
